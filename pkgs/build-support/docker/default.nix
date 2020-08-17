@@ -624,6 +624,7 @@ rec {
 
         mkdir image
         imageJson=$(cat ${configJson} | jq ". + {\"rootfs\": {\"diff_ids\": [], \"type\": \"layers\"}}")
+        imageJson=$(echo "$imageJson" | jq ".ContainerConfig = .config")
         manifestJson=$(jq -n "[{\"RepoTags\":[\"$imageName:$imageTag\"]}]")
         for layer in $(cat layer-list); do
           layerChecksum=$(sha256sum $layer/layer.tar | cut -d ' ' -f1)
@@ -855,6 +856,7 @@ rec {
 
         # Create image json and image manifest
         imageJson=$(cat ${baseJson} | jq '.config.Env = $baseenv + .config.Env' --argjson baseenv "$baseEnvs")
+        imageJson=$(cat "$imageJson" | jq '.ContainerConfig = .config')
         imageJson=$(echo "$imageJson" | jq ". + {\"rootfs\": {\"diff_ids\": [], \"type\": \"layers\"}}")
         manifestJson=$(jq -n "[{\"RepoTags\":[\"$imageName:$imageTag\"]}]")
 
