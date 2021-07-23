@@ -16,11 +16,11 @@ let
 in
 python3Packages.buildPythonApplication rec {
   pname = "diffoscope";
-  version = "177";
+  version = "178";
 
   src = fetchurl {
     url = "https://diffoscope.org/archive/diffoscope-${version}.tar.bz2";
-    sha256 = "sha256-yTOaDhAKtMhQYxolALnuc7FuXoMUOhjmsabtS1FeW/Q=";
+    sha256 = "sha256-uJbTQshf7vRd6EyaaV0itJVrMc/6o+pPXhtUgrjFnzM=";
   };
 
   outputs = [ "out" "man" ];
@@ -72,6 +72,7 @@ python3Packages.buildPythonApplication rec {
     "test_sbin_added_to_path"
     "test_diff_meta"
     "test_diff_meta2"
+    "test_obj_no_differences"
   ];
 
   meta = with lib; {

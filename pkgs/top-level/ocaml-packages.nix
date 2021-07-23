@@ -78,6 +78,8 @@ let
 
     bitv = callPackage ../development/ocaml-modules/bitv { };
 
+    bls12-381 = callPackage ../development/ocaml-modules/bls12-381 { };
+
     bolt = callPackage ../development/ocaml-modules/bolt { };
 
     bos = callPackage ../development/ocaml-modules/bos { };
@@ -371,6 +373,8 @@ let
 
     fdkaac = callPackage ../development/ocaml-modules/fdkaac { };
 
+    ff = callPackage ../development/ocaml-modules/ff { };
+
     fiat-p256 = callPackage ../development/ocaml-modules/fiat-p256 { };
 
     fieldslib_p4 = callPackage ../development/ocaml-modules/fieldslib { };
@@ -412,6 +416,9 @@ let
     h2 = callPackage ../development/ocaml-modules/h2 { };
 
     hacl_x25519 = callPackage ../development/ocaml-modules/hacl_x25519 { };
+
+    hacl-star = callPackage ../development/ocaml-modules/hacl-star { };
+    hacl-star-raw = callPackage ../development/ocaml-modules/hacl-star/raw.nix { };
 
     herelib = callPackage ../development/ocaml-modules/herelib { };
 
@@ -626,6 +633,8 @@ let
 
     lwt-dllist = callPackage ../development/ocaml-modules/lwt-dllist { };
 
+    lwt-watcher = callPackage ../development/ocaml-modules/lwt-watcher { };
+
     lwt_log = callPackage ../development/ocaml-modules/lwt_log { };
 
     lwt_ppx = callPackage ../development/ocaml-modules/lwt/ppx.nix { };
@@ -839,8 +848,6 @@ let
     ocamlgraph = callPackage ../development/ocaml-modules/ocamlgraph { };
     ocamlgraph_gtk = callPackage ../development/ocaml-modules/ocamlgraph/gtk.nix { };
 
-    ocaml_http = callPackage ../development/ocaml-modules/http { };
-
     ocaml_libvirt = callPackage ../development/ocaml-modules/ocaml-libvirt { };
 
     ocamlify = callPackage ../development/tools/ocaml/ocamlify { };
@@ -857,9 +864,7 @@ let
 
     ocamlmod = callPackage ../development/tools/ocaml/ocamlmod { };
 
-    ocaml-monadic = callPackage ../development/ocaml-modules/ocaml-monadic {
-      ocaml-migrate-parsetree = ocaml-migrate-parsetree-2;
-    };
+    ocaml-monadic = callPackage ../development/ocaml-modules/ocaml-monadic { };
 
     ocaml_mysql = callPackage ../development/ocaml-modules/mysql { };
 
@@ -1025,6 +1030,8 @@ let
       inherit (pkgs) secp256k1;
     };
 
+    secp256k1-internal = callPackage ../development/ocaml-modules/secp256k1-internal { };
+
     seq = callPackage ../development/ocaml-modules/seq { };
 
     sosa = callPackage ../development/ocaml-modules/sosa { };
@@ -1158,6 +1165,21 @@ let
     reason = callPackage ../development/compilers/reason { };
 
     reason-native = lib.recurseIntoAttrs (callPackage ../development/ocaml-modules/reason-native { });
+
+    ezresto = callPackage ../development/ocaml-modules/resto/ezresto.nix { };
+    ezresto-directory = callPackage ../development/ocaml-modules/resto/ezresto-directory.nix { };
+
+    resto = callPackage ../development/ocaml-modules/resto { };
+    resto-acl = callPackage ../development/ocaml-modules/resto/acl.nix { };
+    resto-cohttp = callPackage ../development/ocaml-modules/resto/cohttp.nix { };
+    resto-cohttp-client = callPackage ../development/ocaml-modules/resto/cohttp-client.nix { };
+    resto-cohttp-self-serving-client = callPackage ../development/ocaml-modules/resto/cohttp-self-serving-client.nix { };
+    resto-cohttp-server = callPackage ../development/ocaml-modules/resto/cohttp-server.nix { };
+    resto-directory = callPackage ../development/ocaml-modules/resto/directory.nix { };
+    resto-json = callPackage ../development/ocaml-modules/resto/json.nix { };
+
+    ringo = callPackage ../development/ocaml-modules/ringo { };
+    ringo-lwt = callPackage ../development/ocaml-modules/ringo/lwt.nix { };
 
     rope = callPackage ../development/ocaml-modules/rope { };
 
